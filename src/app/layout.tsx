@@ -1,6 +1,6 @@
 import MySessionProvider from "@/providers/MySessionProvider";
 import "@/styles/globals.css";
-import { Session } from "next-auth";
+import { type Session } from "next-auth";
 
 import { Inter } from "next/font/google";
 
