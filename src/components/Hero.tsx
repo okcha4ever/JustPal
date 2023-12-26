@@ -13,7 +13,7 @@ const Hero = () => {
         </div>
         <div>
           <Image
-            src="/Logo.svg"
+            src="/pic.svg"
             alt="logo_pic"
             width={400}
             height={400}
