@@ -1,11 +1,9 @@
-import Bubbles from "@/components/Bubbles";
 import Hero from "@/components/Hero";
 import Link from "next/link";
 
 export default function HomePage() {
   return (
     <main className="overflow-y-hidden py-10">
-      <Bubbles />
       <Hero />
       <Link
         href="/more"
