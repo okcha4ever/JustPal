@@ -14,6 +14,7 @@ const Chatbot = () => {
         <ChatTrigger />
       </PopoverTrigger>
       <PopoverContent className="max-h-[500px] w-[400px] overflow-y-auto">
+        <div>PalChat</div>
         <ChatForm />
       </PopoverContent>
     </Popover>

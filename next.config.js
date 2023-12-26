@@ -7,7 +7,10 @@ await import("./src/env.js");
 /** @type {import("next").NextConfig} */
 const config = {
   images: {
-    domains: ["processed-model-result.s3.us-east-2.amazonaws.com"],
+    domains: [
+      "processed-model-result.s3.us-east-2.amazonaws.com",
+      "lh3.googleusercontent.com",
+    ],
   },
 };
 

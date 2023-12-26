@@ -9,8 +9,8 @@ const Header = () => {
         <Image width={180} height={180} alt="logo" src="/Logo.svg" />
       </Link>
 
-      <div className="flex w-full items-center justify-center">
-        <div className="flex w-1/2 items-center justify-between">
+      <div className="flex w-full items-center justify-start">
+        <div className="flex w-1/2 items-center space-x-10 ps-10">
           <div>
             <Link
               href="/news"
@@ -26,15 +26,6 @@ const Header = () => {
               className="text-[#A7A5A5] duration-200 ease-in-out  hover:text-black"
             >
               Stories
-            </Link>
-          </div>
-
-          <div>
-            <Link
-              href="/href"
-              className="text-[#A7A5A5] duration-200 ease-in-out  hover:text-black"
-            >
-              Help
             </Link>
           </div>
         </div>

@@ -10,6 +10,7 @@ const ChatMessages = ({
   chatMessage: { userMessage: string; aiResponse: string };
 }) => {
   const { data: session } = useSession();
+
   return (
     <div className="space-y-5">
       {/* User's message */}
@@ -17,9 +18,10 @@ const ChatMessages = ({
         {session?.user && session.user.image ? (
           <Image
             src={session?.user.image}
-            width={50}
-            height={50}
+            width={30}
+            height={30}
             alt="user image"
+            className="rounded-full"
           />
         ) : (
           // <Image src=""
