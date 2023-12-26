@@ -66,10 +66,10 @@ model VerificationToken {
 }
 
 model Story {
-    id          String   @id @default(nanoid())
-    image       String?
-    keywords    String[]
-    title       String
-    description String
-    createdAt   DateTime @default(now())
+    id               String   @id @default(nanoid())
+    image_status_url String?
+    keywords         String[]
+    title            String
+    description      String
+    createdAt        DateTime @default(now())
 }
