@@ -1,11 +1,11 @@
-import Header from "@/components/Bubbles";
+import Bubbles from "@/components/Bubbles";
 import Hero from "@/components/Hero";
 
 
 export default function HomePage() {
   return (
-    <main>
-      <Header />
+    <main className="overflow-y-hidden py-10">
+      <Bubbles />
       <Hero />
     </main>
   );

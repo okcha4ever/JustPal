@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Bubbles = () => {
     return (
-      <section className="relative space-y-96 pt-3">
+      <section className="relative space-y-96">
         <div className="absolute w-full inline-flex justify-between px-20">
             <Image width={400} height={400} className="w-auto" alt="chat bubble" src="/chat.svg"/>
             <Image src="/help.svg" width={400} height={400} className="w-auto" alt="help bubble"/>
