@@ -2,11 +2,12 @@ import MySessionProvider from "@/providers/MySessionProvider";
 import "@/styles/globals.css";
 import { type Session } from "next-auth";
 
-import { Inter } from "next/font/google";
+import { Poppins } from "next/font/google";
 
-const inter = Inter({
+const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-sans",
+  weight: "500"
 });
 
 export const metadata = {
@@ -26,7 +27,7 @@ export default function RootLayout({
   return (
     <MySessionProvider session={params.session}>
       <html lang="en">
-        <body className={`font-sans ${inter.variable}`}>{children}</body>
+        <body className={`font-sans ${poppins.variable}`}>{children}</body>
       </html>
     </MySessionProvider>
   );

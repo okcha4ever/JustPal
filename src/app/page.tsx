@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import Header from "@/components/Header";
 import Image from "next/image";
 
@@ -11,6 +12,17 @@ export default function HomePage() {
         width={400}
         height={400}
       />
+=======
+import Bubbles from "@/components/Bubbles";
+import Hero from "@/components/Hero";
+
+
+export default function HomePage() {
+  return (
+    <main className="overflow-y-hidden py-10">
+      <Bubbles />
+      <Hero />
+>>>>>>> 5189374d8df1d55a0793494b7af9ccbab7f76071
     </main>
   );
 }
