@@ -33,7 +33,8 @@ const callAI = async (keywords: string[]) => {
 
 export async function POST(request: NextRequest) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const { keywords }: { keywords: string[] } = await request.json();
+  const { keywords, userId }: { keywords: string[]; userId: string } =
+    await request.json();
 
   try {
     const responseFromCallAI = await callAI(keywords);
@@ -48,6 +49,7 @@ export async function POST(request: NextRequest) {
         keywords: keywords,
         title: typedTextJson.title,
         description: typedTextJson.description,
+        user: { connect: { id: userId } },
       },
     });
 
