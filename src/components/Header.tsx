@@ -1,33 +1,49 @@
-
+import Image from "next/image";
+import Link from "next/link";
+import Profile from "./Profile";
 
 const Header = () => {
-    return (
-      <section className="flex items-center justify-center border-b border-[#000000] text-xl space-x-96 pb-5">
-        <div>
-            <img src="/Logo.svg" />
-        </div>
-        
-        <div className="flex items-center justify-center space-x-24">
-        <div>
-            <a className="text-[#A7A5A5]">News</a>
-        </div>
+  return (
+    <section className="flex items-center justify-between border-b border-[#000000] px-20 py-3 pb-5 text-xl">
+      <Link href="/">
+        <Image width={180} height={180} alt="logo" src="/Logo.svg" />
+      </Link>
 
-        <div>
-            <a className="text-[#A7A5A5]">Stories</a>
-        </div>
+      <div className="flex w-full items-center justify-center">
+        <div className="flex w-1/2 items-center justify-between">
+          <div>
+            <Link
+              href="/news"
+              className="text-[#A7A5A5] duration-200 ease-in-out  hover:text-black"
+            >
+              News
+            </Link>
+          </div>
 
-        <div>
-            <a className="text-[#A7A5A5]">Help</a>
-        </div>        
-        </div>
+          <div>
+            <Link
+              href="/stories"
+              className="text-[#A7A5A5] duration-200 ease-in-out  hover:text-black"
+            >
+              Stories
+            </Link>
+          </div>
 
-        <div>
-            <button className="bg-black rounded-md text-[#FFFFFF] w-24 h-10">Sign Up</button>
+          <div>
+            <Link
+              href="/href"
+              className="text-[#A7A5A5] duration-200 ease-in-out  hover:text-black"
+            >
+              Help
+            </Link>
+          </div>
         </div>
+      </div>
+      <div className="w-fit">
+        <Profile />
+      </div>
+    </section>
+  );
+};
 
-      </section>
-    );
-  };
-  
-  export default Header;
-  
+export default Header;

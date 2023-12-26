@@ -6,6 +6,7 @@ import { type Session } from "next-auth";
 import { Toaster } from "sonner";
 
 import { Poppins } from "next/font/google";
+import Header from "@/components/Header";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -32,9 +33,10 @@ export default function RootLayout({
       <MyReactQueryProvider>
         <html lang="en">
           <body className={`relative font-sans ${poppins.variable}`}>
-            <div className="absolute bottom-0 right-0 pb-5 pe-10">
+            <div className="fixed bottom-5 right-0 pb-5 pe-10">
               <Chatbot />
             </div>
+            <Header />
             {children}
             <Toaster richColors />
           </body>
