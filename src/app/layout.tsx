@@ -1,13 +1,16 @@
+import Chatbot from "@/components/chatbot/Chatbot";
+import MyReactQueryProvider from "@/providers/MyReactQueryProvider";
 import MySessionProvider from "@/providers/MySessionProvider";
 import "@/styles/globals.css";
 import { type Session } from "next-auth";
+import { Toaster } from "sonner";
 
 import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
   variable: "--font-sans",
-  weight: "600"
+  weight: "500",
 });
 
 export const metadata = {
@@ -26,9 +29,17 @@ export default function RootLayout({
 }) {
   return (
     <MySessionProvider session={params.session}>
-      <html lang="en">
-        <body className={`font-sans ${poppins.variable}`}>{children}</body>
-      </html>
+      <MyReactQueryProvider>
+        <html lang="en">
+          <body className={`relative font-sans ${poppins.variable}`}>
+            <div className="absolute bottom-0 right-0 pb-5 pe-10">
+              <Chatbot />
+            </div>
+            {children}
+            <Toaster richColors />
+          </body>
+        </html>
+      </MyReactQueryProvider>
     </MySessionProvider>
   );
 }
