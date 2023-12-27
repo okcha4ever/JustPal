@@ -10,6 +10,7 @@ export async function GET(request: NextRequest) {
       ...(id && {
         where: { id },
       }),
+      include: { user: true },
     });
     return NextResponse.json(stories, { status: 200 });
   } catch {

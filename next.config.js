@@ -10,6 +10,7 @@ const config = {
     domains: [
       "processed-model-result.s3.us-east-2.amazonaws.com",
       "lh3.googleusercontent.com",
+      "www.palestinechronicle.com",
     ],
   },
 };

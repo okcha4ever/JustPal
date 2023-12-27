@@ -25,9 +25,6 @@ const Hero = () => {
           <p>you closer to the Palestinian people</p>
         </div>
         <div className="flex items-center justify-center space-x-4">
-          <button className="z-50 h-10 w-64 rounded-lg bg-black text-xl text-white">
-            Activate Your Account
-          </button>
           <button
             onClick={() => signIn("google")}
             className="z-50 inline-flex h-10 w-72 items-center justify-between rounded-lg bg-[#fffff] px-5 text-xl text-black shadow-md shadow-slate-400"

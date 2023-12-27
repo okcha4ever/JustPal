@@ -1,6 +1,6 @@
 "use client";
 import { Input } from "@/components/ui/input";
-import useChat from "@/hooks/useChat";
+import useChat from "@/hooks/chatbot/useChat";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { ArrowUpIcon } from "lucide-react";
 import { useState } from "react";
@@ -75,7 +75,7 @@ const ChatForm = () => {
             {straightforwardChoices.map((choice) => (
               <li key={choice}>
                 <button
-                  className="border text-start px-3 py-2"
+                  className="border px-3 py-2 text-start"
                   onClick={async () => await onSubmit({ message: choice })}
                 >
                   {choice}

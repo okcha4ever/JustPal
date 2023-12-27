@@ -1,25 +1,25 @@
+"use client";
 import Image from "next/image";
 import Link from "next/link";
 import Profile from "./Profile";
+import { useRouter } from "next/navigation";
+import { useSession } from "next-auth/react";
 
 const Header = () => {
+  const router = useRouter();
+  const { status } = useSession();
   return (
-    <section className="flex items-center justify-between border-b border-[#000000] px-20 py-3 pb-5 text-xl">
-      <Link href="/">
-        <Image width={180} height={180} alt="logo" src="/Logo.svg" />
-      </Link>
+    <section className="flex w-full items-center justify-between border-b border-[#000000] px-20 py-3 pb-5 text-xl">
+      <button
+        onClick={() =>
+          status === "authenticated" ? router.push("/home") : router.push("/")
+        }
+      >
+        <Image width={220} height={220} alt="logo" src="/Logo.svg" />
+      </button>
 
       <div className="flex w-full items-center justify-start">
         <div className="flex w-1/2 items-center space-x-10 ps-10">
-          <div>
-            <Link
-              href="/news"
-              className="text-[#A7A5A5] duration-200 ease-in-out  hover:text-black"
-            >
-              News
-            </Link>
-          </div>
-
           <div>
             <Link
               href="/stories"
@@ -30,9 +30,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="w-fit">
-        <Profile />
-      </div>
+      <Profile />
     </section>
   );
 };
