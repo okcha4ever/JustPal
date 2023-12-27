@@ -2,10 +2,11 @@ import { type User, type Story } from "@prisma/client";
 import axios from "axios";
 import { useQuery } from "react-query";
 
-const useGetStories = () => {
+const useGetStories = (id: string) => {
   const handleRequest = async () => {
-    const { data }: { data: (Story & { user: User })[] } =
-      await axios.get(`/api/stories`);
+    const { data }: { data: (Story & { user: User })[] } = await axios.get(
+      `/api/stories?id=${id}`,
+    );
     return data;
   };
 

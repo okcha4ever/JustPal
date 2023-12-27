@@ -1,6 +1,7 @@
 import { env } from "@/env";
 import { db } from "@/server/db";
 import type TextCortexResponse from "@/types/TextCortex";
+import { type Story } from "@prisma/client";
 import axios from "axios";
 import { NextResponse, type NextRequest } from "next/server";
 
@@ -31,6 +32,17 @@ const callAI = async (keywords: string[]) => {
   return data;
 };
 
+const generateImage = async (caption: string, id: string) => {
+  const { data }: { data: Story } = await axios.post(
+    "http://localhost:3000/api/stories/ai-image/generate",
+    {
+      caption,
+      id,
+    },
+  );
+  return data;
+};
+
 export async function POST(request: NextRequest) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
   const { keywords, userId }: { keywords: string[]; userId: string } =
@@ -44,6 +56,8 @@ export async function POST(request: NextRequest) {
     const textJson: unknown = text && JSON.parse(text);
     const typedTextJson = textJson as { title: string; description: string };
 
+    // get image
+
     const addStory = await db.story.create({
       data: {
         keywords: keywords,
@@ -53,7 +67,20 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    return NextResponse.json(addStory, { status: 200 });
+    const getGeneratedImage = await generateImage(
+      typedTextJson.title,
+      addStory.id,
+    );
+    const updatedWithImage = await db.story.update({
+      where: {
+        id: addStory.id,
+      },
+      data: {
+        image_status_url: getGeneratedImage.image_status_url,
+      },
+    });
+    console.log(updatedWithImage);
+    return NextResponse.json(updatedWithImage, { status: 200 });
   } catch {
     return NextResponse.json("something went wrong", { status: 500 });
   }

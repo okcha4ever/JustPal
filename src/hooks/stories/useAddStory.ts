@@ -5,11 +5,13 @@ import { useMutation, type MutationFunction } from "react-query";
 import { toast } from "sonner";
 
 const useAddStory = () => {
-  const handleRequest: MutationFunction<Story, { keywords: string[] }> = async (
-    variables,
-  ) => {
+  const handleRequest: MutationFunction<
+    Story,
+    { keywords: string[]; userId: string }
+  > = async (variables) => {
     const { data }: { data: Story } = await axios.post("/api/stories/add", {
       keywords: variables.keywords,
+      userId: variables.userId,
     });
     return data;
   };

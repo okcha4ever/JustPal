@@ -40,7 +40,7 @@ const textToImage = async (storyId: string, prompt: string) => {
   }
 };
 
-const getTextToImagePrompt = async (description: string) => {
+const getTextToImagePrompt = async (caption: string) => {
   const promptOptions = {
     method: "POST",
     url: "https://api.textcortex.com/v1/texts/completions",
@@ -55,7 +55,7 @@ const getTextToImagePrompt = async (description: string) => {
       source_lang: "en",
       target_lang: "en",
       temperature: 0.65,
-      text: `given a description of someone's story, please provide a short sentence that would fit as a prompt to generate a good image by a text to image AI. the description: ${description}`,
+      text: `given a description of someone's story, please provide a short sentence that would fit as a prompt to generate a good image by a text to image AI. the description: ${caption}`,
     },
   };
 
@@ -67,11 +67,10 @@ const getTextToImagePrompt = async (description: string) => {
 
 export async function POST(request: NextRequest) {
   // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
-  const { description, id }: { description: string; id: string } =
-    await request.json();
+  const { caption, id }: { caption: string; id: string } = await request.json();
 
   try {
-    const textToImagePrompt = await getTextToImagePrompt(description);
+    const textToImagePrompt = await getTextToImagePrompt(caption);
 
     if (!textToImagePrompt) throw Error;
     // else

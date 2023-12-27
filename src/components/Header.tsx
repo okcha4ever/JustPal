@@ -2,12 +2,13 @@
 import Image from "next/image";
 import Link from "next/link";
 import Profile from "./Profile";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 
 const Header = () => {
   const router = useRouter();
   const { status } = useSession();
+  const pathname = usePathname();
   return (
     <section className="flex w-full items-center justify-between border-b border-[#000000] px-20 py-3 pb-5 text-xl">
       <button
@@ -23,7 +24,9 @@ const Header = () => {
           <div>
             <Link
               href="/stories"
-              className="text-[#A7A5A5] duration-200 ease-in-out  hover:text-black"
+              className={`text-[#A7A5A5] duration-200 ease-in-out  hover:text-black ${
+                pathname.includes("/stories") && "font-bold text-black"
+              }`}
             >
               Stories
             </Link>
