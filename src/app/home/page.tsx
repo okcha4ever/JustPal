@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/carousel";
 
 const Home = () => {
-  const { data: stories, isLoading: storiesIsLoading } = useGetStories();
+  const { data: stories, isLoading: storiesIsLoading } = useGetStories("");
   // const { data: news, isLoading: newsIsLoading } = useGetNews();
 
   const news = [
