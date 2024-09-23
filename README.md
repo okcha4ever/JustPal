@@ -1,1 +1,1 @@
-![Picture](Desktop/Pic/first-page.png)
+![Picture](/Pic/first-page.png)
