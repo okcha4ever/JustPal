@@ -1,1 +1,1 @@
-![Picture](/Pic/first-page.png)
+![Picture](./first-page.png)
